@@ -22,12 +22,10 @@ services:
     build:
       target: dev
     volumes:
-      - ./front/lib:/app/lib
-      - ./front/src:/app/src
-      - ./front/public:/app/public
+      - ./front:/app
 
   back:
     build:
       target: dev
     volumes:
-      - ./back:/build
+      - ./back:/app
