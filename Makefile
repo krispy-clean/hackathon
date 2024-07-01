@@ -73,14 +73,14 @@ restart-db:
 # You need to have bun installed to make it worked
 ci:
 	@echo "Running the same commands as the CI. Let's check the backend first"
-	@cd back && bunx prettier . -c && bunx eslint .
+	@cd back && bun run format-check && bun run lint
 	@echo "Everything is fine for the backend. Let's test the frontend"
-	@cd front && bunx prettier . -c && bunx eslint .
+	@cd front && bun run format-check && bun run lint
 	@echo "Everything you can commit now"
 
 prettier-fix:
 	@echo "You had some prettier issues let's fix it!"
-	@cd front && bunx prettier . -w
+	@cd front && bun run format-fix
 	@cd back && bunx prettier . -w
 	@echo "Your prettier issues are fixed!"
 
