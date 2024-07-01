@@ -40,6 +40,7 @@ class Status {
 
 class Company {
     ID increments notNull
+    companyId text notNull
     createdAt timestamp
     updatedAt timestamp
     deletedAt timestamp
@@ -64,6 +65,7 @@ class Mission {
     usersPending Users[]
     company Company[]
     chosenUser Users
+    requirements text
 }
 
 class Posts {
