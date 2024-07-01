@@ -129,6 +129,6 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-.idea
+.idea/*
 front/.idea
 back/.idea
