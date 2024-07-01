@@ -1,4 +1,4 @@
-name: "js"
+name: "front"
 
 on:
   # If a code is pushed straight into staging we need it to have the same tests as the code pushed via a pr
@@ -8,7 +8,7 @@ on:
     branches: ["staging", "main"]
 
 jobs:
-  es-lint-front:
+  lint-and-format:
     # With the 3 following lines the commands will be executed in the front directory
     defaults:
       run:
