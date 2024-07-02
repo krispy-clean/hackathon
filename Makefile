@@ -7,7 +7,7 @@ DATABASE_CONTAINER_NAME = mongo
 default: commands
 
 dev:
-	@docker compose -f docker-compose.yml up --build -d
+	@docker compose -f docker-compose-dev.yml up --build -d
 	@echo "Dev containers started"
 
 down:

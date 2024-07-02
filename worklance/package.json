@@ -7,7 +7,7 @@
     "apps/*"
   ],
   "scripts": {
-    "dev": "bun --filter '*' dev",
+    "dev": "bun --filter '*' --watch dev",
     "build": "bun --filter '*' build"
   },
   "engines": {
