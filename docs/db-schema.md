@@ -7,10 +7,11 @@ classDiagram
 Missions "1"--"*" Companies
 Missions "*"--"*" Users
 Missions "1"-- "0"Status
-Missions "*"-- "0"Skills
+Missions "*"-- "*"Skills
 Posts "1"-- "1"Users
 Missions "1"-- "1"Contracts
 Certifications "*"-- "*"Users
+Users "*"-- "*"Skills
 
 class Users {
     ID increments notNull
@@ -92,6 +93,8 @@ class Skills {
     updatedAt timestamp
     deletedAt timestamp
     name text notNull
+    missions Missions[]
+    users Users[]
 }
 
 class Contracts {
