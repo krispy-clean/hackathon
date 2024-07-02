@@ -1,11 +1,21 @@
-import yup, {ValidationError} from "yup";
-import {requiredNumber, requiredString} from "./schemas";
+import yup, { ValidationError } from "yup";
+import { requiredNumber, requiredString } from "./schemas";
 import InvalidConfigError from "../errors/InvalidConfigError";
 
 const configSchema = yup.object({
-  port: requiredNumber,
-  hostname: requiredString,
-  protocol: requiredString,
+  api: yup.object({
+    port: requiredNumber,
+    hostname: requiredString,
+    protocol: requiredString,
+  }),
+  auth: yup.object({
+    saltLength: requiredNumber,
+    iterationsNumber: requiredNumber,
+    keyLength: requiredNumber,
+  }),
+  db: yup.object({
+    uri: requiredString,
+  }),
 });
 
 export type Config = yup.InferType<typeof configSchema>;
@@ -16,6 +26,14 @@ try {
     port: process.env.BACKEND_PORT,
     hostname: process.env.BACKEND_HOSTNAME,
     protocol: process.env.PROTOCOL,
+    auth: {
+      saltLength: process.env.AUTH__SALT_LENGTH,
+      iterationsNumber: process.env.AUTH__ITERATIONS_NUMBER,
+      keyLength: process.env.AUTH__KEY_LENGTH,
+    },
+    db: {
+      uri: process.env.DB__URI,
+    },
   });
 } catch (error) {
   if (error instanceof ValidationError) {

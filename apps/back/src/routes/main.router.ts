@@ -1,10 +1,10 @@
-import {Elysia} from "elysia";
+import { Elysia } from "elysia";
 import userRouter from "./user.router";
 
 const mainRouter = new Elysia({
-    prefix:"/api",
-})
+  prefix: "/api",
+});
 
-mainRouter.use(userRouter)
+mainRouter.use(userRouter);
 
 export default mainRouter;
