@@ -1,0 +1,12 @@
+{
+  "name": "hackathon",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
