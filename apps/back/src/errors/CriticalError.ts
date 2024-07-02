@@ -1,4 +1,4 @@
-class CriticalError extends Error {
+export default class CriticalError extends Error {
     constructor(message: string) {
         super();
         this.message = message;

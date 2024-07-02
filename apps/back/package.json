@@ -8,9 +8,11 @@
   },
   "dependencies": {
     "elysia": "latest",
+    "mongoose": "^8.4.4",
     "yup": "^1.3.3"
   },
   "devDependencies": {
+    "@types/mongoose": "^5.11.97",
     "bun-types": "latest"
   }
 }
