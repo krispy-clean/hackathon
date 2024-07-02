@@ -1,0 +1,16 @@
+{
+  "name": "hackathon",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "bun --filter '*' dev",
+    "build": "bun --filter '*' build"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

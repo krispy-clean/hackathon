@@ -12,7 +12,7 @@ jobs:
     # With the 3 following lines the commands will be executed in the front directory
     defaults:
       run:
-        working-directory: ./front
+        working-directory: ./apps/front
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
