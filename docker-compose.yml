@@ -17,3 +17,17 @@ services:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: hackme
       ME_CONFIG_MONGODB_URL: mongodb://root:hackme@mongo:27017/
+  
+  app:
+    image: oven/bun:latest
+    restart: always
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    env_file: .env
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes: 
+      - .:/app
+      - /app/node_modules
