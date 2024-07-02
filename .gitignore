@@ -133,3 +133,6 @@ dist
 .idea/*
 front/.idea
 back/.idea
+
+front/bun.lockb
+back/bun.lockb
