@@ -2,19 +2,19 @@
 ---
 title: Database model
 ---
-
 classDiagram
 
-Mission "1"--"*" Company
-Mission "*"--"*" Users
-Mission "1"-- "0"Status
-Mission "1"-- "0"Skills
-Posts "*"-- "1"Users
-Mission "*"-- "1"Contracts
+Missions "1"--"*" Companies
+Missions "*"--"*" Users
+Missions "1"-- "0"Status
+Missions "*"-- "0"Skills
+Posts "1"-- "1"Users
+Missions "1"-- "1"Contracts
+Certifications "*"-- "*"Users
 
 class Users {
     ID increments notNull
-    createdAt timestamp
+    createdAt timestamp notNull
     updatedAt timestamp
     deletedAt timestamp
     firstName text notNull
@@ -22,26 +22,29 @@ class Users {
     email text unique notNull
     passwordHash text notNull
     passwordSalt text notNull
-    isActive boolean default false notNull
+    isActive boolean default true notNull
     isVerified boolean default false notNull
-    description text notNull
-    missionsCompleted Mission[]
+    description text
+    missionsCompleted Missions[]
     missionsPending Missions[]
     dailyFee number notNull
+    certifications Certifications[]
+    skills Skills[]
+    post Posts
 }
 
 class Status {
     ID increments notNull
-    createdAt timestamp
+    createdAt timestamp notNull
     updatedAt timestamp
     deletedAt timestamp
     name text notNull
 }
 
-class Company {
+class Companies {
     ID increments notNull
     companyId text notNull
-    createdAt timestamp
+    createdAt timestamp notNull
     updatedAt timestamp
     deletedAt timestamp
     name text notNull
@@ -51,11 +54,13 @@ class Company {
     passwordHash text notNull
     passwordSalt text notNull
     description text notNull
+    address text notNull
+    missions Missions[]
 }
 
-class Mission {
+class Missions {
     ID increments notNull
-    createdAt timestamp
+    createdAt timestamp notNull
     updatedAt timestamp
     deletedAt timestamp
     title text notNull
@@ -63,14 +68,18 @@ class Mission {
     budget number notNull
     duration text notNull
     usersPending Users[]
-    company Company[]
+    company Companies[]
     chosenUser Users
     requirements text
+    skill Skills[]
+    company Companies
+    status Status
+    contratc Contracts
 }
 
 class Posts {
     ID increments notNull
-    createdAt timestamp
+    createdAt timestamp notNull
     updatedAt timestamp
     deletedAt timestamp
     title text notNull
@@ -79,7 +88,7 @@ class Posts {
 
 class Skills {
     ID increments notNull
-    createdAt timestamp
+    createdAt timestamp notNull
     updatedAt timestamp
     deletedAt timestamp
     name text notNull
@@ -87,10 +96,20 @@ class Skills {
 
 class Contracts {
     ID increments notNull
-    createdAt timestamp
+    createdAt timestamp notNull
     updatedAt timestamp
     deletedAt timestamp
     companySigned boolean default false notNull
     userSigned boolean default false notNull
+    mission Missions
+}
+
+class Certifications {
+    ID increments notNull
+    createdAt timestamp notNull
+    updatedAt timestamp
+    deletedAt timestamp
+    name text notNull
+    users Users[]
 }
 ```
