@@ -3,7 +3,7 @@ services:
     image: mongo
     restart: always
     ports:
-      - 5432:5432
+      - 27017:27017  # Change this line to expose the correct port
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: hackme
