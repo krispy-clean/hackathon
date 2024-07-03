@@ -1,5 +1,6 @@
 "use client"
 
+import { api } from "@hackathon/api"
 import { Field, Form, Formik } from "formik"
 import * as Yup from "yup"
 
@@ -23,7 +24,7 @@ const SignUpUserForm = () => (
           confirmPassword: Yup.string().oneOf([Yup.ref("password"), null], "Passwords must match")
         })}
         onSubmit={values => {
-          console.log(values)
+          api.users.index.post(values) // EXAMPLE OF USE OF THE API
         }}
       >
         {({ errors, touched }) => (
