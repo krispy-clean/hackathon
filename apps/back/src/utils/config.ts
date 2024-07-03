@@ -23,9 +23,11 @@ let config = {};
 
 try {
   config = await configSchema.validate({
-    port: process.env.BACKEND_PORT,
-    hostname: process.env.BACKEND_HOSTNAME,
-    protocol: process.env.PROTOCOL,
+    api: {
+      port: process.env.API__PORT,
+      hostname: process.env.API__HOSTNAME,
+      protocol: process.env.API__PROTOCOL,
+    },
     auth: {
       saltLength: process.env.AUTH__SALT_LENGTH,
       iterationsNumber: process.env.AUTH__ITERATIONS_NUMBER,
