@@ -8,7 +8,9 @@
   ],
   "scripts": {
     "dev": "bun --filter '*' dev",
-    "build": "bun --filter '*' build"
+    "build": "bun --filter '*' build",
+    "format-fix": "prettier -w .",
+    "format-check": "prettier -c ."
   },
   "engines": {
     "node": ">=14.0.0"
