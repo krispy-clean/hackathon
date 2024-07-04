@@ -1,12 +1,13 @@
-import { api } from "@hackathon/api"
-import HomeCard from "../components/HomeCard"
+import Header from "../components/UI/Header"
+import HomePage from "../components/UI/HomePage"
 
 export default function Home() {
-  const message = async () => await api.index.get()
-
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <HomeCard message={message} />
-    </main>
+    <>
+      <Header />
+      <main>
+        <HomePage />
+      </main>
+    </>
   )
 }
