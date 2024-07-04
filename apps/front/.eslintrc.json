@@ -65,7 +65,7 @@
         "enforceForClassFields": true
       }
     ],
-    "complexity": ["warn", 10],
+    "complexity": ["warn", 15],
     "comma-spacing": [
       "error",
       {
@@ -116,7 +116,7 @@
     "max-lines-per-function": [
       "warn",
       {
-        "max": 80,
+        "max": 120,
         "skipBlankLines": true,
         "skipComments": true
       }
